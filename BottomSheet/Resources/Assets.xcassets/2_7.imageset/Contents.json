@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Thinking-of-getting-a-cat.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Thinking-of-getting-a-cat 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Thinking-of-getting-a-cat 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
