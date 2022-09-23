@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "golden-retriever-royalty-free-image-506756303-1560962726.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "golden-retriever-royalty-free-image-506756303-1560962726 1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "golden-retriever-royalty-free-image-506756303-1560962726 2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
