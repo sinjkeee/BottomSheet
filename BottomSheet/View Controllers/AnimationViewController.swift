@@ -38,7 +38,7 @@ class AnimationViewController: UIViewController {
     
     private let petsView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.2016450763, green: 0.4917045832, blue: 0.5361617208, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
         view.layer.borderColor = UIColor.white.cgColor
@@ -48,7 +48,7 @@ class AnimationViewController: UIViewController {
     }()
     
     private let collectionView: UICollectionView = {
-       let layout = UICollectionViewFlowLayout()
+        let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 15
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -74,6 +74,7 @@ class AnimationViewController: UIViewController {
     
     private let petsArray = ["1_1", "1_2", "1_3", "1_4", "1_5", "1_6", "1_7", "1_8",
                              "2_1", "2_2", "2_3", "2_4", "2_5", "2_6", "2_7", "2_8"]
+    private var isOpen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +100,29 @@ class AnimationViewController: UIViewController {
     }
     
     @objc private func selectButtonTapped() {
-        
+        if isOpen {
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                guard let self = self else { return }
+                self.isOpen = false
+                self.selectButton.setTitle("Select", for: .normal)
+                self.heightConstraint.constant = 20
+                self.widthConstraint.constant = 20
+                self.bottomConstraint.constant = 0
+                self.leadingConstraint.constant = 20
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                guard let self = self else { return }
+                self.isOpen = true
+                self.selectButton.setTitle("Close", for: .normal)
+                self.heightConstraint.constant = 300
+                self.widthConstraint.constant = self.view.frame.width - 40
+                self.bottomConstraint.constant = -310
+                self.leadingConstraint.constant = self.view.frame.width - 20 - self.selectButton.frame.width
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }
 
@@ -119,6 +142,7 @@ extension AnimationViewController: UICollectionViewDataSource {
     }
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
 extension AnimationViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
